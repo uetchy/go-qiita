@@ -38,6 +38,7 @@ type Client struct {
 	Users *UsersService
 }
 
+// Create http query string from map
 func addOptions(s string, opt interface{}) (string, error) {
 	v := reflect.ValueOf(opt)
 	if v.Kind() == reflect.Ptr && v.IsNil() {
@@ -58,6 +59,7 @@ func addOptions(s string, opt interface{}) (string, error) {
 	return u.String(), nil
 }
 
+// Return new client instance
 func NewClient(httpClient *http.Client) *Client {
 	if httpClient == nil {
 		httpClient = http.DefaultClient
@@ -70,6 +72,7 @@ func NewClient(httpClient *http.Client) *Client {
 	return c
 }
 
+// Return new http request
 func (c *Client) NewRequest(method, urlStr string, body interface{}) (*http.Request, error) {
 	rel, err := url.Parse(urlStr)
 	if err != nil {
@@ -99,6 +102,7 @@ func (c *Client) NewRequest(method, urlStr string, body interface{}) (*http.Requ
 	return req, nil
 }
 
+// Do http request
 func (c *Client) Do(req *http.Request, v interface{}) (*http.Response, error) {
 	resp, err := c.client.Do(req)
 	if err != nil {
@@ -106,13 +110,6 @@ func (c *Client) Do(req *http.Request, v interface{}) (*http.Response, error) {
 	}
 
 	defer resp.Body.Close()
-
-	// err = CheckResponse(resp)
-	// if err != nil {
-	// 	// even though there was an error, we still return the response
-	// 	// in case the caller wants to inspect it further
-	// 	return resp, err
-	// }
 
 	if v != nil {
 		if w, ok := v.(io.Writer); ok {

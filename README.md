@@ -25,6 +25,10 @@ func main() {
 }
 ```
 
+## Document
+
+See [godoc](http://godoc.org/github.com/uetchy/go-qiita) for further information and instructions.
+
 ## Build
 
 ```
