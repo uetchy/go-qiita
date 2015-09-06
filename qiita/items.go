@@ -1,7 +1,6 @@
 package qiita
 
 import (
-	// "fmt"
 	"net/http"
 	"time"
 )
