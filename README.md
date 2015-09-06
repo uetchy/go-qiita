@@ -1,4 +1,4 @@
-# go-qiita
+# go-qiita [![Build Status](https://travis-ci.org/uetchy/go-qiita.svg)](https://travis-ci.org/uetchy/go-qiita)
 Go binding for Qiita API.
 
 ## Usage
