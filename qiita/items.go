@@ -10,17 +10,17 @@ type ItemsService struct {
 }
 
 type Item struct {
-	RenderedBody *string    `json:"rendered_body"`
-	Body         *string    `json:"body"`
-	CoEditing    *bool      `json:"coediting"`
-	CreatedAt    *time.Time `json:"created_at"`
-	Id           *string    `json:"id"`
-	Private      *bool      `json:"private"`
-	Tags         []Tag      `json:"tags"`
-	Title        *string    `json:"title"`
-	UpdatedAt    *time.Time `json:"updated_at"`
-	URL          *string    `json:"url"`
-	User         *User      `json:"user"`
+	RenderedBody string        `json:"rendered_body"`
+	Body         string        `json:"body"`
+	CoEditing    bool          `json:"coediting"`
+	CreatedAt    time.Time     `json:"created_at"`
+	Id           string        `json:"id"`
+	Private      bool          `json:"private"`
+	Tags         []AttachedTag `json:"tags"`
+	Title        string        `json:"title"`
+	UpdatedAt    time.Time     `json:"updated_at"`
+	URL          string        `json:"url"`
+	User         User          `json:"user"`
 }
 
 type ItemsListOptions struct {

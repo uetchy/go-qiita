@@ -34,8 +34,10 @@ type Client struct {
 	BaseURL   *url.URL
 	UserAgent string
 
-	Items *ItemsService
-	Users *UsersService
+	Items             *ItemsService
+	Users             *UsersService
+	AuthenticatedUser *AuthenticatedUserService
+	Tags              *TagsService
 }
 
 // Create http query string from map
@@ -69,6 +71,8 @@ func NewClient(httpClient *http.Client) *Client {
 	c := &Client{client: httpClient, BaseURL: baseURL, UserAgent: userAgent}
 	c.Items = &ItemsService{client: c}
 	c.Users = &UsersService{client: c}
+	c.AuthenticatedUser = &AuthenticatedUserService{client: c}
+	c.Tags = &TagsService{client: c}
 	return c
 }
 
