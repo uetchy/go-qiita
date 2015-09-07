@@ -4,3 +4,4 @@ go:
   - tip
 install: go get -v ./qiita
 script: go test -v ./qiita
+sudo: false
