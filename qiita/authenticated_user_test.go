@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"reflect"
 	"testing"
-	"time"
+	// "time"
 )
 
 func TestAuthenticatedUserService_Show(t *testing.T) {

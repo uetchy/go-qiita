@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"reflect"
 	"testing"
-	"time"
+	// "time"
 )
 
 func TestItemsService_List(t *testing.T) {
