@@ -24,7 +24,6 @@ func TestItemsService_List(t *testing.T) {
         "rendered_body": "<h1>Example</h1>",
         "body": "# Example",
         "coediting": false,
-        "created_at": "2000-01-01T00:00:00+00:00",
         "id": "4bd431809afb1bb99e4f",
         "private": false,
         "tags": [
@@ -36,7 +35,6 @@ func TestItemsService_List(t *testing.T) {
           }
         ],
         "title": "Example title",
-        "updated_at": "2000-01-01T00:00:00+00:00",
         "url": "https://qiita.com/yaotti/items/4bd431809afb1bb99e4f",
         "user": {
           "description": "Hello, world.",
@@ -74,7 +72,6 @@ func TestItemsService_List(t *testing.T) {
 			Body:         "# Example",
 			RenderedBody: "<h1>Example</h1>",
 			CoEditing:    false,
-			CreatedAt:    time.Date(2000, time.January, 1, 0, 0, 0, 0, time.UTC),
 			Id:           "4bd431809afb1bb99e4f",
 			Private:      false,
 			Tags: []AttachedTag{{
@@ -84,7 +81,6 @@ func TestItemsService_List(t *testing.T) {
 				},
 			}},
 			Title:     "Example title",
-			UpdatedAt: time.Date(2000, time.January, 1, 0, 0, 0, 0, time.UTC),
 			URL:       "https://qiita.com/yaotti/items/4bd431809afb1bb99e4f",
 			User: User{
 				Description:       "Hello, world.",
