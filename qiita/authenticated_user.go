@@ -23,7 +23,7 @@ func (s *AuthenticatedUserService) Get() (*User, error) {
 	return user, err
 }
 
-// List the authenticated user's items in newest order
+// List the authenticated user's items in newest order.
 func (s *AuthenticatedUserService) Items(opt *ListOptions) ([]Item, *http.Response, error) {
 	u, err := addOptions("authenticated_user/items", opt)
 	if err != nil {
