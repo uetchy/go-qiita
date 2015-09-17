@@ -76,8 +76,8 @@ func TestUsersService_Stocks(t *testing.T) {
 					"0.0.1",
 				},
 			}},
-			Title:     "Example title",
-			URL:       "https://qiita.com/yaotti/items/4bd431809afb1bb99e4f",
+			Title: "Example title",
+			URL:   "https://qiita.com/yaotti/items/4bd431809afb1bb99e4f",
 			User: User{
 				Description:       "Hello, world.",
 				FacebookId:        "yaotti",
