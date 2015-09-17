@@ -38,3 +38,7 @@ func (s *TagsService) List(opt *ListOptions) ([]Tag, *http.Response, error) {
 
 	return *tags, resp, err
 }
+
+func (s *TagsService) Get(id string) (*Tag, error) {
+
+}
