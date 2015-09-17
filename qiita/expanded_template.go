@@ -10,6 +10,16 @@ type ExpandedTemplateService struct {
 	client *Client
 }
 
-func (s *ExpandedTemplateService) Create() (ExpandedTemplate, error) {
-
+// TODO: Get a template where its variables are expanded.
+func (s *ExpandedTemplateService) Create(body string, tags []Tag, title string) (*ExpandedTemplate, error) {
+	req, err := s.client.NewRequest("POST", "expanded_templates", nil)
+	if err != nil {
+		return nil, err
+	}
+	expandedTemplate := new(ExpandedTemplate)
+	_, err = s.client.Do(req, expandedTemplate)
+	if err != nil {
+		return nil, err
+	}
+	return expandedTemplate, nil
 }
