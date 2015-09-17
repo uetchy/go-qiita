@@ -9,7 +9,7 @@ type AuthenticatedUserService struct {
 }
 
 // Get a user associated to the current access token.
-func (s *AuthenticatedUserService) Show() (*User, error) {
+func (s *AuthenticatedUserService) Get() (*User, error) {
 	req, err := s.client.NewRequest("GET", "authenticated_user", nil)
 	if err != nil {
 		return nil, err

@@ -5,10 +5,9 @@ import (
 	"net/http"
 	"reflect"
 	"testing"
-	// "time"
 )
 
-func TestAuthenticatedUserService_Show(t *testing.T) {
+func TestAuthenticatedUserService_Get(t *testing.T) {
 	setup()
 	defer teardown()
 
@@ -36,7 +35,7 @@ func TestAuthenticatedUserService_Show(t *testing.T) {
     }`)
 	})
 
-	items, err := client.AuthenticatedUser.Show()
+	items, err := client.AuthenticatedUser.Get()
 
 	if err != nil {
 		t.Errorf("Issues.List returned error: %v", err)
@@ -132,8 +131,8 @@ func TestAuthenticatedUserService_Items(t *testing.T) {
 					"0.0.1",
 				},
 			}},
-			Title:     "Example title",
-			URL:       "https://qiita.com/yaotti/items/4bd431809afb1bb99e4f",
+			Title: "Example title",
+			URL:   "https://qiita.com/yaotti/items/4bd431809afb1bb99e4f",
 			User: User{
 				Description:       "Hello, world.",
 				FacebookId:        "yaotti",
