@@ -32,14 +32,11 @@ func TestUsersService_Stocks(t *testing.T) {
       }
     ]`)
 	})
-
 	opt := &ListOptions{Page: 1, PerPage: 2}
 	items, err := client.Users.Stocks("yaotti", opt)
-
 	if err != nil {
-		t.Errorf("Issues.List returned error: %v", err)
+		t.Errorf("Users.Stocks returned error: %v", err)
 	}
-
 	want := []Item{
 		{
 			Body:         "# Example",
@@ -55,5 +52,20 @@ func TestUsersService_Stocks(t *testing.T) {
 	}
 	if !reflect.DeepEqual(items, want) {
 		t.Errorf("Issues.List returned %+v, want %+v", items, want)
+	}
+}
+
+func TestUsersService_Follow(t *testing.T) {
+	setup()
+	defer teardown()
+
+	mux.HandleFunc("/users/yaotti/following", func(w http.ResponseWriter, r *http.Request) {
+		testMethod(t, r, "PUT")
+		w.WriteHeader(204)
+		fmt.Fprint(w, "")
+	})
+	err := client.Users.Follow("yaotti")
+	if err != nil {
+		t.Errorf("Users.Follow returned error: %v", err)
 	}
 }

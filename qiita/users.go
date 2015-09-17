@@ -94,8 +94,8 @@ func (s *UsersService) Follow(userId string) error {
 	if err != nil {
 		return err
 	}
-	_, err = s.client.Do(req, nil)
-	if err != nil {
+	resp, err := s.client.Do(req, nil)
+	if err != nil || resp.StatusCode != 204 {
 		return err
 	}
 	return nil
