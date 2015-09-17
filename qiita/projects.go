@@ -1,6 +1,10 @@
 package qiita
 
-type ProjectService struct {
+import (
+	"time"
+)
+
+type ProjectsService struct {
 	client *Client
 }
 
@@ -14,22 +18,72 @@ type Project struct {
 	UpdatedAt    time.Time `json:"updated_at"`
 }
 
-func (s *ProjectService) List(opt *ListOptions) ([]Project, error) {
-
+// TODO: Create a new project.
+func (s *ProjectsService) Create() error {
+	req, err := s.client.NewRequest("POST", "projects", nil)
+	if err != nil {
+		return err
+	}
+	_, err = s.client.Do(req, nil)
+	if err != nil {
+		return err
+	}
+	return nil
 }
 
-func (s *ProjectService) Create() error {
-
+// TODO: List projects in newest order.
+func (s *ProjectsService) List(opt *ListOptions) ([]Project, error) {
+	req, err := s.client.NewRequest("GET", "projects", nil)
+	if err != nil {
+		return nil, err
+	}
+	projects := new([]Project)
+	_, err = s.client.Do(req, projects)
+	if err != nil {
+		return nil, err
+	}
+	return *projects, nil
 }
 
-func (s *ProjectService) Delete() error {
-
+// TODO: Get a project.
+// https://qiita.com/api/v2/docs#get-apiv2projectsproject_id
+func (s *ProjectsService) Get(projectId string) (*Project, error) {
+	req, err := s.client.NewRequest("GET", "projects/"+projectId, nil)
+	if err != nil {
+		return nil, err
+	}
+	project := new(Project)
+	_, err = s.client.Do(req, project)
+	if err != nil {
+		return nil, err
+	}
+	return project, nil
 }
 
-func (s *ProjectService) Get() error {
-
+// TODO: Update a project.
+// https://qiita.com/api/v2/docs#patch-apiv2projectsproject_id
+func (s *ProjectsService) Edit(projectId string) error {
+	req, err := s.client.NewRequest("PATCH", "projectss/"+projectId, nil)
+	if err != nil {
+		return err
+	}
+	_, err = s.client.Do(req, nil)
+	if err != nil {
+		return err
+	}
+	return nil
 }
 
-func (s *ProjectService) Edit() error {
-
+// TODO: Delete a project.
+// https://qiita.com/api/v2/docs#delete-apiv2projectsproject_id
+func (s *ProjectsService) Delete(projectId string) error {
+	req, err := s.client.NewRequest("DELETE", "projectss/"+projectId, nil)
+	if err != nil {
+		return err
+	}
+	_, err = s.client.Do(req, nil)
+	if err != nil {
+		return err
+	}
+	return nil
 }
