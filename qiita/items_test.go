@@ -32,14 +32,10 @@ func TestItemsService_List(t *testing.T) {
       }
     ]`)
 	})
-
-	opt := &ListOptions{Page: 1, PerPage: 2}
-	items, err := client.Items.List("query", opt)
-
+	items, err := client.Items.List("query", &ListOptions{Page: 1, PerPage: 2})
 	if err != nil {
 		t.Errorf("Issues.List returned error: %v", err)
 	}
-
 	want := []Item{
 		{
 			Body:         "# Example",
