@@ -28,7 +28,7 @@ func TestTagsService_Stocks(t *testing.T) {
 	})
 
 	opt := &ListOptions{Page: 1, PerPage: 2}
-	items, _, err := client.Tags.List(opt)
+	items, err := client.Tags.List(opt)
 
 	if err != nil {
 		t.Errorf("Issues.List returned error: %v", err)

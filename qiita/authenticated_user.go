@@ -9,7 +9,7 @@ type AuthenticatedUserService struct {
 }
 
 // Get a user associated to the current access token.
-func (s *AuthenticatedUserService) Show() (*User, error) {
+func (s *AuthenticatedUserService) Get() (*User, error) {
 	req, err := s.client.NewRequest("GET", "authenticated_user", nil)
 	if err != nil {
 		return nil, err
@@ -23,7 +23,7 @@ func (s *AuthenticatedUserService) Show() (*User, error) {
 	return user, err
 }
 
-// List the authenticated user's items in newest order
+// List the authenticated user's items in newest order.
 func (s *AuthenticatedUserService) Items(opt *ListOptions) ([]Item, *http.Response, error) {
 	u, err := addOptions("authenticated_user/items", opt)
 	if err != nil {
